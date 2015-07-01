@@ -1,0 +1,59 @@
+[core]
+	editor = vim +1 -c normal\\ $
+	trustctime = false
+[alias]
+	s = status
+	c = commit
+	b = branch
+	co = checkout
+	r = rebase
+	d = diff
+	dc = diff --cached
+	wd = diff --word-diff
+	l = log --oneline
+	unchanged = update-index --assume-unchanged
+	no-unchanged = update-index --no-assume-unchanged
+	ld = log --oneline --decorate
+	owner = !sh -c \"git blame --line-porcelain \\\"$@\\\" | sed -n \\\"s/^author //p\\\" | sort | uniq -c | sort -rn\"
+	unstage = rm --cached
+	rmc = rm --cached
+	rrmc = rm -r --cached
+	cp = cherry-pick
+	autosquash = rebase --interactive --autosquash
+	yolo = push --force
+	lsd = ls-files -d
+	lsm = ls-files -m
+	latest-tag = describe --tags --abbrev=0
+	pt = push --tags
+	cclone = !hub clone $1
+	t = tag
+	logf = !git log --ignore-missing ^origin/{master,develop,development} HEAD
+	lf = !git logf --oneline
+	dd = !git difftool -y --extcmd 'icdiff --highlight --line-numbers'
+	intend = add --intent-to-add
+	sha = log -1 --pretty=format:%H
+	sel = !git branch | sed -En 's/^  (.+)$/\\1/p' | selecta | xargs git checkout
+  ammend = commit --amend
+  oops = commit --amend --no-edit
+[color]
+	diff = true
+	ui = false
+[user]
+	name = Jeames Bone
+	email = jeames.bone@gmail.com
+[rerere]
+	enabled = true
+[push]
+	default = simple
+[merge]
+	defaultToUpstream = true
+[rebase]
+	autosquash = true
+[hub]
+	protocol = https
+[init]
+	templatedir = ~/.config/git/templates
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true

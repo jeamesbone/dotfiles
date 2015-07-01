@@ -1,0 +1,17 @@
+# xcode
+alias xcode-beta='sudo xcode-select --switch /Applications/Xcode-beta.app'
+alias xcode-default='sudo xcode-select --switch /Applications/Xcode.app'
+
+# zsh
+alias zshconfig="vim ~/.zshrc"
+alias zshreload="source ~/.zshrc"
+alias ohmyzsh="vim ~/.oh-my-zsh"
+
+# shell
+alias ls="ls -G"
+alias ll="ls -l"
+alias lt="ls -t"
+
+# apps
+alias marked="open -a Marked"
+alias preview="open -a Preview"
